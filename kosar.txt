@@ -1,0 +1,37 @@
+   <button onclick="kosarba('termek1')" style="width: 200px; height: 200px;">Termék1</button>
+    <button onclick="kosarba('termek2')" style="width: 200px; height: 200px;">Termék2</button>
+    <button onclick="kosarba('termek3')" style="width: 200px; height: 200px;">Termék3</button>
+    <br>
+    <br>
+    <button onclick="torles()">törlés</button>
+    <button onclick="kosar()">kosár</button>
+    <br>
+    <br>
+    <table border="2" id="lista"></table>
+
+
+
+var termek1 = 10000
+var termek2 = 1500
+var termek3 = 2000
+
+
+function kosarba(termek) {
+    db=Number(prompt("Add meg hány darabot szeretnél"))
+    localStorage.setItem(termek,db)
+}
+
+function torles(){
+    localStorage.clear()
+}
+
+function kosar(){
+    var lista = "<tr> <th> név: </th> <th> darab: </th> <th> ár: </th> </tr>"
+    aru = localStorage.key
+    darab = localStorage.getItem(localStorage.key(0))
+    ar = localStorage.key(0)
+    lista += "<tr> <th>" + aru + "</th> <th>" + darab + " </th> <th> " + ar + "FT </th> </tr>"
+
+    document.getElementById('lista').innerHTML = lista
+}
+
